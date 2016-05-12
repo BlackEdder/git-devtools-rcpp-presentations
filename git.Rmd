@@ -59,17 +59,33 @@ git config --global http.proxy http://158.119.147.68:3128
 
 - The "github" way
 - Forking (your own copy)
-- Pull requests (see attached picture)
+- Pull requests
 
 ### Shared repo
 
 - Still often chose to use PRs
 
+## Pull requests
+
+![PR](./assets/git-collaboration-4-638.png)
+
 ## Tutorial
 
-- Fork Blackedder/git-rcpp-tutorial
+- Fork Blackedder/git-devtools-rcpp-presentations
 - Clone to local machine
+
+```
+git clone https://github.com/BlackEdder/git-devtools-rcpp-presentations.git
+```
+
 - Create feature branch
+
+```
+git branch improvements
+git checkout improvements
+```
+
+- Make your changes
 - Push feature branch
 - Open pull request
 
