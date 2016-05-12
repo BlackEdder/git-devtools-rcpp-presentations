@@ -1,0 +1,8 @@
+---
+title: "RPackage"
+author: "Edwin van Leeuwen"
+date: "12 May 2016"
+output: html_document
+---
+
+Live demo on how to create a package (skeleton)
