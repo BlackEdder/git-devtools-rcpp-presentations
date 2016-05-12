@@ -1,0 +1,85 @@
+---
+title: "Rcpp"
+author: "Edwin van Leeuwen"
+date: "12 May 2016"
+output: html_document
+---
+
+```{r,eval=F}
+install.packages("Rcpp")
+
+library(devtools)
+setwd("tmp/myCustomPackage/")
+```
+
+## Use Rcpp in my package
+
+```{r,eval=F}
+devtools::use_rcpp()
+# Note the comments, we will come back to that
+```
+
+```C++
+// Create a file src/factorial.cc with the contents: (use new C++ new file in Rstudio)
+
+#include <Rcpp.h>
+using namespace Rcpp;
+
+// [[Rcpp::export]]
+size_t factorialCPP( size_t n )
+{
+  size_t fact = 1;
+  for( size_t k = 2; k <= n; ++k )
+  {
+    fact *= k;
+  }
+  return fact;
+}
+```
+
+```{r,eval=F}
+devtools::build()
+devtools::load_all() # Does not work
+
+# Add the following to the beginning of R/factorial.R 
+#' @useDynLib myCustomPackage
+#' @importFrom Rcpp sourceCpp
+devtools::document()
+devtools::load_all()
+
+factorialCPP(10)
+```
+
+## Help
+
+```{r,eval=F}
+# No help available yet
+?factorialCPP
+
+# Add help to factorial (copy to src/factorial.cc)
+
+//' @title Calculate factorial of given value
+//'
+//' @param n The value for which to calculate the factorial
+//' @return Resulting factorial
+
+devtools::document()
+# Now the help is created under the man directory
+?factorialCPP
+```
+
+
+## Add test to testFactorial
+
+```{r,eval=F}
+# Add to tests/testthat/factorial.R
+test_that("my.factorial returns same value as factorialCPP", {
+  expect_equal(my.factorial(10), factorialCPP(10))
+})
+
+devtools::test()
+```
+
+## More information
+
+For more information see: http://adv-r.had.co.nz/Rcpp.html

@@ -60,7 +60,7 @@ devtools::document()
 
 # Add help to factorial (copy to R/myPackage.R)
 
-#' Calculate factorial of given value
+#' @title Calculate factorial of given value
 #'
 #' @param n The value for which to calculate the factorial
 #' @return Resulting factorial
