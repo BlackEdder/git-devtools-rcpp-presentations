@@ -69,7 +69,7 @@ git config --global http.proxy http://158.119.147.68:3128
 
 ![PR](./assets/git-collaboration-4-638.png)
 
-## Tutorial
+## Tutorial/Live demo
 
 - Fork Blackedder/git-devtools-rcpp-presentations
 - Clone to local machine
