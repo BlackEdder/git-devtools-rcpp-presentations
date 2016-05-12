@@ -6,3 +6,110 @@ output: html_document
 ---
 
 Live demo on how to create a package (skeleton)
+
+### Create package in new directory
+
+```{r,eval=F}
+library(devtools)
+dir.create("tmp")
+
+
+?devtools::create
+
+path <- file.path("tmp", "myCustomPackage")
+my_description <- list("Maintainer" =
+  "'Edwin van Leeuwen' <bla@bla.com>")
+devtools::create(path, my_description)
+
+# Browse to the new directory and look at all the files*
+#- DESCRIPTION
+#-  NAMESPACE
+#- R/
+
+setwd(path)
+```
+
+### Create first function
+
+$$n!=\prod_{k=1}^n k$$
+
+```{r,eval=F}
+# Open new script file
+#Copy and paste the factorial function:#
+my.factorial <- function(n) {
+  prod(seq(1,n))
+}
+```
+
+After writing this, note that my.factorial does not exist yet in the script -> load the new package
+
+```{r,eval=F}
+# Make sure working directory is correct
+devtools::load_all()
+my.factorial(10)
+```
+
+## Documentation
+
+```{r,eval=F}
+# No help available yet
+?my.factorial
+
+# Generate help
+devtools::document()
+
+# Add help to factorial (copy to R/myPackage.R)
+
+#' Calculate factorial of given value
+#'
+#' @param n The value for which to calculate the factorial
+#' @return Resulting factorial
+
+devtools::document()
+# Now the help is created under the man directory
+?my.factorial
+```
+
+## Vignettes
+
+```{r,eval=F}
+devtools::use_vignette("myCustomPackage_introduction")
+# Added to vignettes directory
+
+devtools::build_vignettes()
+```
+
+## Dependencies
+
+```{r, eval=F}
+devtools::use_package("reshape2")
+# Changes DESCRIPTION imports
+# Can also do it by hand
+```
+
+## Run check
+
+```{r,eval=F}
+# Check whether all needed files exists
+devtools::check()
+# Need license (edit DESCRIPTION file
+```
+
+
+## Tests
+
+```{r,eval=F}
+devtools::use_testthat()
+
+# Create new test in tests/testthat/testFactorial.R
+# test prefix in testFactorial.R is important (see tests/testthat.R)
+
+test_that("my.factorial returns same value as factorial", {
+  expect_equal(my.factorial(10), factorial(10))
+})
+
+# After creating the file run test:
+devtools::test()
+
+# Give example of when test is wrong by breaking my.factorial.R (starting at 0 instead of 1)
+```
