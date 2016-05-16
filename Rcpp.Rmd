@@ -39,7 +39,8 @@ size_t factorialCPP( size_t n )
 
 ```{r,eval=F}
 devtools::build()
-devtools::load_all() # Does not work
+devtools::load_all()
+factorialCPP(10) # Does not work
 
 # Add the following to the beginning of R/factorial.R 
 #' @useDynLib myCustomPackage
@@ -82,4 +83,5 @@ devtools::test()
 
 ## More information
 
+Note that you can also write inline C(++) functions.
 For more information see: http://adv-r.had.co.nz/Rcpp.html

@@ -96,3 +96,4 @@ I can demo this part without the forking step
 https://www.codeschool.com/learn/git (4th, seems to be free)
 https://campus.codeschool.com/courses/mastering-github/level/1/section/1/video/1
 https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf
+https://git-scm.com/book/en/v2
