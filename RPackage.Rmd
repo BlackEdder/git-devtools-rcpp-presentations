@@ -64,6 +64,7 @@ devtools::document()
 #'
 #' @param n The value for which to calculate the factorial
 #' @return Resulting factorial
+#' @export
 
 devtools::document()
 # Now the help is created under the man directory
