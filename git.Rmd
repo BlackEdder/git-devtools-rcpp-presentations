@@ -14,6 +14,27 @@ output: ioslides_presentation
 - git is Decentralized (explains some of its quirks)
     - No real concept of master (instead one or more remotes)
     - Always have a full copy locally on your computer
+    
+## Local workflow
+
+- Make your edit
+- Stage file for commit
+
+```
+git add <file-name>
+```
+
+- commit changes
+
+```
+git commit
+```
+
+Both steps in one
+
+```
+git commit -a
+```
 
 ## Remotes
 
@@ -30,6 +51,21 @@ git remote add <name> <url>
 
 When cloning github repo, it is automatically added as a remote with the name: origin
 
+## Update remotes
+
+Push and pull changes to remotes
+
+```
+git push <remote> <branch>
+git pull <remote> <branch>
+```
+
+Add default push/pull branch
+
+```
+git push --set-upstream <remote> <branch>
+```
+
 ## Branches
 
 - master
@@ -39,9 +75,15 @@ When cloning github repo, it is automatically added as a remote with the name: o
 
 ``` 
 # Create a new branch
-git branch [branch-name]
+git branch <branch-name>
 # Switch to the new branch
-git checkout [branch-name]
+git checkout <branch-name>
+```
+
+Branch and checkout (two in one)
+
+```
+git checkout -b <branch-name>
 ```
 
 ## Tutorial
@@ -75,7 +117,7 @@ git config --global http.proxy http://158.119.147.68:3128
 - Clone to local machine
 
 ```
-git clone https://github.com/BlackEdder/git-devtools-rcpp-presentations.git
+git clone https://github.com/<your-repo>/git-devtools-rcpp-presentations.git
 ```
 
 - Create feature branch
@@ -93,7 +135,7 @@ I can demo this part without the forking step
 
 ## Other resources
 
-https://www.codeschool.com/learn/git (4th, seems to be free)
-https://campus.codeschool.com/courses/mastering-github/level/1/section/1/video/1
-https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf
-https://git-scm.com/book/en/v2
+- https://www.codeschool.com/learn/git (4th, seems to be free)
+    - https://campus.codeschool.com/courses/mastering-github/level/1/section/1/video/1
+- https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf
+- https://git-scm.com/book/en/v2
