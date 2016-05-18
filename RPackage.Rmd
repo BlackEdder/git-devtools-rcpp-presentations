@@ -58,6 +58,9 @@ my.factorial(10)
 # Generate help
 devtools::document()
 
+# Still no help available
+?my.factorial
+
 # Add help to factorial (copy to R/myPackage.R)
 
 #' @title Calculate factorial of given value
@@ -78,6 +81,7 @@ devtools::use_vignette("myCustomPackage_introduction")
 # Added to vignettes directory
 
 devtools::build_vignettes()
+# HTML version is now in the inst/doc/ directory
 ```
 
 ## Dependencies
