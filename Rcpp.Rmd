@@ -42,7 +42,7 @@ devtools::build()
 devtools::load_all()
 factorialCPP(10) # Does not work
 
-# Add the following to the beginning of R/factorial.R 
+# Add the following to the beginning of a R file (R/factorial.R in this case) 
 #' @useDynLib myCustomPackage
 #' @importFrom Rcpp sourceCpp
 devtools::document()
@@ -73,7 +73,7 @@ devtools::document()
 ## Add test to testFactorial
 
 ```{r,eval=F}
-# Add to tests/testthat/factorial.R
+# Add to tests/testthat/testFactorial.R
 test_that("my.factorial returns same value as factorialCPP", {
   expect_equal(my.factorial(10), factorialCPP(10))
 })
