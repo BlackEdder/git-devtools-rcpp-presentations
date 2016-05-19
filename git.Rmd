@@ -1,5 +1,5 @@
 ---
-title: "git"
+title: "Edwin is a git"
 author: "Edwin van Leeuwen"
 date: "12 May 2016"
 output: ioslides_presentation
